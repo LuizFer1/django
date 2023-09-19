@@ -6,17 +6,21 @@
     </a>
   </h1>
 
-  <form method="Get" action="{% url "home" %}">
+  <form method="Get" action="{% url 'home' %}">
     <input type="text" name="q" placeholder="Search rooms..."/>
   </form>
 
   {% if request.user.is_authenticated %}
   <h3>
-    <a href="{% url "logout" %}">logout</a>
+    
+    <a href="{% url 'logout' %}">logout</a>
+  </h3>
+  <h3>
+    hello {{request.user}}
   </h3>
   {% else %}
   <h3>
-    <a href="{% url "login" %}">Login</a>
+    <a href="{% url 'login' %}">Login</a>
   </h3>
   {% endif %}
 
