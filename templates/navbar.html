@@ -1,3 +1,4 @@
+{% load static %}
 <nav>
 
   <h1>
@@ -16,8 +17,9 @@
     <a href="{% url 'logout' %}">logout</a>
   </h3>
   <h3>
-    hello {{request.user}}
+    hello {{request.user}}   <img src="{% static 'img/model.svg' %}" />
   </h3>
+
   {% else %}
   <h3>
     <a href="{% url 'login' %}">Login</a>

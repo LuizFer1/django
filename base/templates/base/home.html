@@ -14,7 +14,7 @@
 
 <div class="home__container">
   <div>
-    {{% include "base/topics__component.html" %}}
+    {% include "base/topics__component.html" %}
   </div>
 
   <div>
@@ -22,7 +22,7 @@
       <h5>{{room_count}} Rooms Available</h5>
       <p><a href="{% url 'create-room' %}">Create Room</a></p>
     </div>
-    {% include "base/rooms__components.html" %}
+    {% include "base/feed__components.html" %}
   </div>
   
   <div>
