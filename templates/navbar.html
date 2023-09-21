@@ -37,7 +37,7 @@
       </div>
 
       {% else %}
-      <a href="edit-user.html" class="btn btn--main btn--pill">Edit Profile</a>
+      <!-- <a href="edit-user.html" class="btn btn--main btn--pill">Edit Profile</a> -->
       <!-- Not Logged In -->
       <a href="{% url 'login' %}">
         <img src="{% static 'img/avatar.svg' %}" />
@@ -70,21 +70,3 @@
     </nav>
   </div>
 </header>
-
-
-<!-- <nav>
-  <h3>
-
-    <a href="{% url 'logout' %}">logout</a>
-  </h3>
-  <h3>
-    hello {{request.user}}
-  </h3>
-
-  <h3>
-    <a href="{% url 'login' %}">Login</a>
-  </h3>
-
-
-
-</nav> -->

@@ -68,7 +68,7 @@ def registerPage(request):
 
 def home(request):
   q = request.GET.get('q') if request.GET.get('q') != None else ''
-  topics = Topic.objects.all()
+  topics = Topic.objects.all()[0:4]
   rooms = Room.objects.filter(Q(topico__name__icontains = q) | Q(name__icontains = q) | Q(description__icontains = q))
   room_message = Message.objects.filter(Q(room__topico__name__icontains = q))
   room_count = rooms.count()
@@ -185,3 +185,16 @@ def updateUser(request, pk):
 
   context = {'user' : user, 'form' : form}
   return render(request, 'base/update-user.html', context)
+
+def topicsPage(request):
+  q = request.GET.get('q') if request.GET.get('q') != None else ''
+  topics = Topic.objects.filter(name_contains=q)
+
+  context = {'topics' : topics}
+  return render(request, 'base/topics.html', context)
+
+def activityPage(request):
+  room_message = Message.objects.filter()
+
+  context = {'room_message' : room_message}
+  return render(request, 'base/activity.html', context)
