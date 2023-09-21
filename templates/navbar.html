@@ -37,7 +37,7 @@
       </div>
 
       {% else %}
-      
+      <a href="edit-user.html" class="btn btn--main btn--pill">Edit Profile</a>
       <!-- Not Logged In -->
       <a href="{% url 'login' %}">
         <img src="{% static 'img/avatar.svg' %}" />
@@ -47,7 +47,7 @@
       {% endif %}
 
       <div class="dropdown-menu">
-        <a href="settings.html" class="dropdown-link"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32"
+        <a href="{% url "update-user" request.user.id %}" class="dropdown-link"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32"
             height="32" viewBox="0 0 32 32">
             <title>tools</title>
             <path

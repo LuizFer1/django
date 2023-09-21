@@ -16,6 +16,7 @@ urlpatterns = [
     #Delete Message
     path('delete-message/<str:pk>', views.deleteMessage , name="delete-message"),
     #User Profile
-    path('user-profile/<str:pk>', views.userProfilePage , name="user-profile")
+    path('user-profile/<str:pk>', views.userProfilePage , name="user-profile"),
+    path('update-user/<str:pk>', views.updateUser, name="update-user")
 
 ]
