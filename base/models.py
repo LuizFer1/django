@@ -1,7 +1,19 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
+
+class User(AbstractUser):
+  pass
+  name = models.CharField(max_length=200, null=True)
+  email = models.EmailField(unique=True)
+  bio = models.TextField(null=True)
+
+  avatar = models.ImageField(null=True, default="avatar.svg")
+
+
+  USERNAME_FIELD = 'email'
+  REQUIRED_FIELDS = []
 
 class Topic(models.Model):
   name = models.CharField(max_length=200)
@@ -20,7 +32,7 @@ class Room(models.Model):
 
   class Meta:
     ordering = ['-updated', '-create']
-  
+
   def __str__(self):
     return self.name
 
@@ -30,7 +42,7 @@ class Message(models.Model):
   body = models.TextField()
   updated = models.DateTimeField(auto_now=True)
   create = models.DateTimeField(auto_now_add=True)
-  
+
   class Meta:
     ordering = ['-updated', '-create']
 
